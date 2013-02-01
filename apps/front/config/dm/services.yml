@@ -1,0 +1,13 @@
+parameters:
+
+  media_tag_image.class:      myMediaTagImage
+
+  front_pager_view.options:   { first: '&laquo;', prev: 'Предыдущая', next: 'Следующая', last: '&raquo;' }
+
+  media_synchronizer.class:   myMediaSynchronizer
+
+  error_watcher.options:
+    mail_superadmin:          true
+
+  request_log_entry.class:    myRequestLogEntry
+  event_log_entry.class:      myEventLogEntry

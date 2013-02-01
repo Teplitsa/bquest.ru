@@ -1,0 +1,78 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Quest
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: quest
+    with_doctrine_route: false
+    i18n_catalogue: dm
+    config:
+      actions: ~
+      fields:
+        description:              { is_big: true }
+        agency_id:                { label: 'Инициатор' }
+        team_id:                  { label: 'Исполнитель' }
+        dm_media_id:              { label: 'Фото' }
+        deadline:                 { label: 'Дедлайн' }
+        theme:                    { label: 'Тематика' }
+        help_type:                { label: 'Тип помощи' }
+        hours:                    { label: 'Часов потрачено' }
+        rating:                   { label: 'Рейтинг' }
+        report_text:              { label: 'Отчет', is_big: true }
+        report_image_id:          { label: 'Фото отчета' }
+        status:                   { label: 'Статус' }
+        address:                  { label: 'Адрес' }
+      list:
+        display:
+          - '=name'
+          - is_active
+          - agency_id
+          - team_id
+          #- dm_media_id
+          #- description
+          - _theme
+          - _help_type
+          - _status
+          #- hours
+          #- rating
+          #- report_text
+          #- report_image_id
+          - deadline
+          - created_at
+          #- updated_at
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - is_active
+          - description
+          #- deadline
+          #- agency_id
+          #- team_id
+          #- dm_media_id
+          #- theme
+          #- help_type
+          #- hours
+          #- rating
+          #- report_text
+          #- report_image_id
+          #- status
+          #- created_at
+          #- updated_at
+      form:
+        display:
+          NONE: [name, is_active, address, agency_id, team_id, description, deadline, theme, help_type, hours, rating, report_text, status]
+          #Others: []
+          'Фото задания': [dm_media_id_form, dm_media_id_view]
+          'Фото отчет': [report_image_id_form, report_image_id_view]
+        class: QuestAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

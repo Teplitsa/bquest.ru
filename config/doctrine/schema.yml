@@ -1,0 +1,72 @@
+DmUser:
+  columns:
+    user_type:                    { type: integer }
+
+Quest:
+  actAs:                          [ Timestampable ]
+  columns:
+    name:                         { type: string(255), notnull: true }
+    description:                  { type: clob, notnull: true, extra: ckeditor }
+    deadline:                     { type: string(255), notnull: true }
+    agency_id:                    { type: integer, notnull: true }
+    team_id:                      { type: integer }
+    dm_media_id:                  { type: integer }
+    theme:                        { type: integer }
+    help_type:                    { type: integer }
+    hours:                        { type: integer }
+    rating:                       { type: integer }
+    report_text:                  { type: clob, extra: ckeditor }
+    report_image_id:              { type: integer }
+    status:                       { type: integer }
+    address:                      { type: string(255) }
+    latlng:                       { type: string(255) }
+    video_url:                    { type: string(255) }
+    photo_url:                    { type: string(255) }
+    is_active:                    { type: boolean, default: true }
+  relations:
+    Agency:                       { type: one, foreignType: many, onDelete: RESTRICT, foreignAlias: Quests }
+    Team:                         { type: one, foreignType: many, onDelete: RESTRICT, foreignAlias: Quests }
+    DmMedia:                      { type: one, foreignType: one, onDelete: RESTRICT, foreignAlias: Quest }
+    ReportImage:                  { class: DmMedia, local: report_image_id, type: one, foreignType: one, onDelete: RESTRICT, foreignAlias: Quest }
+
+Agency:
+  columns:
+    name:                         { type: string(255), notnull: true }
+    description:                  { type: string(2048) }
+    coordinator_name:             { type: string(255) }
+    coordinator_telephone:        { type: string(255) }
+    website:                      { type: string(255) }
+    dm_media_id:                  { type: integer }
+    dm_user_id:                   { type: integer, notnull: true }
+    is_active:                    { type: boolean, default: false }
+  relations:
+    DmUser:                       { type: one, foreignType: one, onDelete: RESTRICT, foreignAlias: Agency }
+    DmMedia:                      { type: one, foreignType: one, onDelete: SET NULL, foreignAlias: Agency }
+
+Team:
+  columns:
+    name:                         { type: string(255), notnull: true }
+    email1:                       { type: string(255) }
+    email2:                       { type: string(255) }
+    email3:                       { type: string(255) }
+    email4:                       { type: string(255) }
+    email5:                       { type: string(255) }
+    dm_media_id:                  { type: integer }
+    dm_user_id:                   { type: integer, notnull: true }
+    is_active:                    { type: boolean, default: false }
+  relations:
+    DmUser:                       { type: one, foreignType: one, onDelete: RESTRICT, foreignAlias: Team }
+    DmMedia:                      { type: one, foreignType: one, onDelete: SET NULL, foreignAlias: Team }
+
+Quote:
+  columns:
+    author:                       { type: string(255), notnull: true }
+    text:                         { type: string(2048), notnull: true }
+    is_active:                    { type: boolean, default: true }
+
+Message:
+  actAs:                          [ Timestampable ]
+  columns:
+    name:                         { type: string(255), notnull: true }
+    text:                         { type: clob, extra: ckeditor }
+    is_active:                    { type: boolean, default: true }

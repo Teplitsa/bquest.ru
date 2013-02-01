@@ -1,0 +1,39 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Quote
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: quote
+    with_doctrine_route: false
+    i18n_catalogue: dm
+    config:
+      actions: ~
+      fields:
+        is_active:
+          label: Active
+      list:
+        display:
+          - '=author'
+          - text
+          - is_active
+        sort:
+          - author
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - author
+          - is_active
+          - text
+      form:
+        display:
+          NONE: [author, is_active]
+          Others: [text]
+        class: QuoteAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

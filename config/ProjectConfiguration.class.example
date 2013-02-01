@@ -1,0 +1,44 @@
+<?php
+date_default_timezone_set( 'Europe/London' );
+setlocale( LC_ALL, 'ru_RU.utf8' );
+
+$host = isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : '';
+$ip   = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
+$uri  = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+
+if ( ! in_array( $host, array( 'bquest.local', 'bquest.ru', '' ) ) )
+{
+  $q = $_SERVER['QUERY_STRING'];
+
+  if ( $q != '' )
+  {
+    $q = '?' . $q;
+  }
+
+  header( 'HTTP/1.1 301 Moved Permanently' );
+  header( 'Location: http://bquest.ru' . $uri . $q );
+
+  exit;
+}
+
+$root = '/www/bquest/';
+require_once $root . 'lib/vendor/diem/dmCorePlugin/lib/core/dm.php';
+require_once $root . 'lib/my/functions.php';
+
+dm::start();
+
+class ProjectConfiguration extends dmProjectConfiguration
+{
+
+  public function setup()
+  {
+    parent::setup();
+
+    $this->enablePlugins( array(
+      'dmCkEditorPlugin',
+    ) );
+
+    $this->setWebDir( sfConfig::get( 'sf_root_dir' ) . '/web' );
+  }
+
+}

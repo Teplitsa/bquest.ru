@@ -1,0 +1,13 @@
+all:
+
+  theming:
+    themes:
+      "Default":
+        dir:              theme
+        enabled:          true
+
+  html:
+    doctype:
+      name:               html
+      version:            5
+      compliance:         transitional

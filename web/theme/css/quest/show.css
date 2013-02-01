@@ -1,0 +1,26 @@
+.quest_show .image {
+  float: left;
+  width: 150px;
+  margin-right: 18px;
+  display: block;
+}
+
+.quest_show .agency.img {
+  margin-left: 158px;
+}
+
+.quest_show .image img {
+  display: block;
+}
+
+.quest_show .double_column_container .col:first-child {
+  width: 59%;
+}
+.quest_show .double_column_container .col:nth-child(2) {
+  width: 39%;
+}
+
+.quest_show .complete_controls {
+  width: 650px;
+  text-align: center;
+}

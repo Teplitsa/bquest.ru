@@ -1,0 +1,30 @@
+default:
+
+  http_metas:
+    content-type:                 text/html
+
+  metas:
+    google-site-verification:     myzA28G8-cu_PJqPNsEVaeohnkBfgK4j0q8eTEdLz0c
+    robots:                       'index, follow'
+    revisit-after:                '1 days'
+    copyright:                    'Благотворительный Квест'
+
+  stylesheets:
+    - 'http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic'
+    - cssreset-min
+    - layout
+    - global
+    - forms
+    - user/signin
+    #- main
+    - markdown
+    - header
+    - footer
+
+  javascripts:
+    - front
+    - /dmCkEditorPlugin/js/ckeditor/ckeditor.js
+    - /dmCkEditorPlugin/js/ckeditor/adapters/jquery.js
+
+  has_layout:     true
+  layout:         layout

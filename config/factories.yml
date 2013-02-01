@@ -1,0 +1,21 @@
+all:
+
+  storage:
+    class:                          dmSessionStorage
+    param:
+      session_name:               bquest
+      session_cookie_path:        /
+      #session_cookie_domain:      bquest.domain
+      session_cookie_lifetime:    8640000
+      session_cookie_secure:      false
+      session_cookie_http_only:   true
+      session_cookie_secret:      3478h6785fs1
+
+  mailer:
+    param:
+      delivery_strategy:          realtime
+      transport:
+        class:                    Swift_MailTransport
+
+  request:
+    class:                        myWebRequest

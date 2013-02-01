@@ -1,0 +1,16 @@
+div.sf_widget_form_date div.sf_admin_form_row_inner select {
+  width: auto !important;
+}
+
+div.sf_widget_form_select_radio div.sf_admin_form_row_inner ul.radio_list {
+  overflow: visible;
+}
+div.sf_widget_form_select_radio div.sf_admin_form_row_inner ul.radio_list li {
+  display: inline;
+  float: none;
+  border: none;
+  background: none;
+}
+div.sf_widget_form_select_radio div.sf_admin_form_row_inner ul.radio_list li input {
+  width: auto !important;
+}

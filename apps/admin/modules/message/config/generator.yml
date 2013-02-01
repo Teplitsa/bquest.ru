@@ -1,0 +1,43 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Message
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: message
+    with_doctrine_route: false
+    i18n_catalogue: dm
+    config:
+      actions: ~
+      fields:
+        is_active:
+          label: Active
+      list:
+        display:
+          - '=name'
+          - text
+          - is_active
+          - created_at
+          - updated_at
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - is_active
+          - text
+          - created_at
+          - updated_at
+      form:
+        display:
+          NONE: [name, is_active]
+          Text: [text]
+        class: MessageAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

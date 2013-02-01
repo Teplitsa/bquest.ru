@@ -1,0 +1,55 @@
+all:
+
+  i18n:
+    cultures:             [ 'ru' ]
+    prefix_url:           false
+
+  cache:
+    apc:                  true
+
+  js:
+    compress:             true
+    cdn:
+      enabled:            false
+    head_inclusion:       [ lib.jquery ]
+
+  css:
+    compress:             true
+
+  orm:
+
+    identifier_fields:    [ name, title, subject, author, id ]
+    cache_enabled:        true
+
+  performance:
+    enable_mailer:        true
+
+    page_cache:
+      enabled:            false
+      life_time:          86400
+
+  web_services:
+    version_check:        false
+    report_anonymous_data: false
+
+  ckeditor:
+    config:
+      #height: 400
+      toolbar:
+        - ['Undo','Redo','-','Bold', 'Italic','Underline','Strike','Superscript','Subscript', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink']
+        - ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
+        - ['PasteText','PasteFromWord', 'RemoveFormat']
+        - ['Table','Image','SpecialChar']
+        - ['Format','FontSize', 'TextColor','BGColor']
+        #- ['Source', 'Maximize']
+
+  security:
+    remember_cookie_name:               the_north_remembers
+    remember_key_expiration_age:        57542400
+
+dev:
+  js:
+    compress: false
+  css:
+    compress: false
+

@@ -1,0 +1,56 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Team
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: team
+    with_doctrine_route: false
+    i18n_catalogue: dm
+    config:
+      actions: ~
+      fields:
+        name:                     { label: 'Название' }
+        dm_user_id:               { label: 'Аккаунт' }
+        email1:                   { label: 'Участник 1' }
+        email2:                   { label: 'Участник 2' }
+        email3:                   { label: 'Участник 3' }
+        email4:                   { label: 'Участник 4' }
+        email5:                   { label: 'Участник 5' }
+      list:
+        display:
+          - '=name'
+          - is_active
+          - dm_user_id
+          #- dm_media_id
+          #- email1
+          #- email2
+          #- email3
+          #- email4
+          #- email5
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          #- email1
+          #- email2
+          #- email3
+          #- email4
+          #- email5
+          #- dm_media_id
+          #- dm_user_id
+      form:
+        display:
+          NONE: [name, dm_user_id]
+          'Участники': [email1, email2, email3, email4, email5]
+          'Фото': [dm_media_id_form, dm_media_id_view]
+        class: TeamAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

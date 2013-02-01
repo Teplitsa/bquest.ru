@@ -1,0 +1,13 @@
+.team_profile_card {
+
+}
+
+.team_profile_card .image {
+  float: left;
+  width: 150px;
+  margin-right: 8px;
+
+}
+.team_profile_card .image img {
+  display: block;
+}

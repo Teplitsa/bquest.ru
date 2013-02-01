@@ -1,0 +1,56 @@
+Content:
+
+  Global:
+
+    main:
+      components:
+        header:
+        footer:
+        quests:
+        mapnteam:
+
+    quest:
+      model:                      Quest
+      admin:                      true
+      page:                       true
+      name:                       'Задание|Задания'
+      components:
+        form:
+        list:
+        show:
+
+    agency:
+      model:                      Agency
+      admin:                      true
+      page:                       true
+      name:                       'Организация|Организации'
+      components:
+        form:
+        profile:
+        show:
+        list:
+
+    team:
+      model:                      Team
+      admin:                      true
+      page:                       true
+      name:                       'Команда|Команды'
+      components:
+        form:
+        profile:
+        show:
+
+    quote:
+      model:                      Quote
+      admin:                      true
+      name:                       'Цитата|Цитаты'
+
+    message:
+      model:                      Message
+      admin:                      true
+      page:                       true
+      name:                       'Сообщение|Сообщения'
+      components:
+        side:
+        list:
+        show:

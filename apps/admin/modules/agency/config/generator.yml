@@ -1,0 +1,50 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Agency
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: agency
+    with_doctrine_route: false
+    i18n_catalogue: dm
+    config:
+      actions: ~
+      fields:
+        name:                     { label: 'Название' }
+        dm_user_id:               { label: 'Аккаунт' }
+        dm_media_id:              { label: 'Логотип' }
+        coordinator_name:         { label: 'Координатор' }
+        coordinator_telephone:    { label: 'Телефон коорд-ра' }
+      list:
+        display:
+          - '=name'
+          - is_active
+          - dm_user_id
+          #- dm_media_id
+          - coordinator_name
+          - coordinator_telephone
+          - website
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - coordinator_name
+          - coordinator_telephone
+          #- website
+          #- dm_media_id
+          #- dm_user_id
+      form:
+        display:
+          NONE: [name, dm_user_id,coordinator_name, coordinator_telephone, website, description]
+          #Others: []
+          'Логотип': [dm_media_id_form, dm_media_id_view]
+        class: AgencyAdminForm
+        fields: {  }
+      edit: ~
+      new: ~
